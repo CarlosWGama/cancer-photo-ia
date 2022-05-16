@@ -30,7 +30,7 @@ train_generator = training_datagen.flow_from_directory(
 	TRAINING_DIR,
 	target_size=(150,150),
 	class_mode='categorical',
-    batch_size=5
+    batch_size=20
 )
 
 #Cria o modelo
@@ -88,7 +88,7 @@ model= Model(inputs=base_model.input,outputs=preds)
 # model.compile(loss = 'categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 model.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-history = model.fit(train_generator, epochs=20, steps_per_epoch=5, verbose = 1, validation_steps=3)
+history = model.fit(train_generator, epochs=20, steps_per_epoch=20, verbose = 1, validation_steps=3)
 
 model.save(f"modelo_{TIPO}.h5")
 

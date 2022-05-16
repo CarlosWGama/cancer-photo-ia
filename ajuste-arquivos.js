@@ -1,6 +1,6 @@
 fs = require('fs')
 
-const diretorio = './training/leucoplasia/positivo';
+const diretorio = './training/cancer/negativo';
 let total = 1;
 
 fs.readdir(diretorio, (error, arquivos) => {

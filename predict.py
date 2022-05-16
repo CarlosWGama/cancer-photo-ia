@@ -8,10 +8,10 @@ import requests
 ######################################
 ### Configurações
 #Cancer
-imagem = 'D:\\Downloads\\python\\training\\cancer\\negativo\\52.jpg'
-#imagem = 'D:\\Downloads\\python\\training\\cancer\\positivo\\33.jpg'
-#imagem = 'D:\\Downloads\\python\\training\\leucoplasia\\negativo\\f03-12-9788535287059.jpg'
-#imagem = 'D:\\Downloads\\python\\training\\leucoplasia\\positivo\\LEUCOPLASIA 1.2.jpg'
+#imagem = 'D:\\Downloads\\python-cancer\\training\\cancer\\positivo\\50.jpg'
+imagem = 'D:\\Downloads\\python-cancer\\training\\cancer\\negativo\\77.jpg'
+#imagem = 'D:\\Downloads\\python-cancer\\training\\leucoplasia\\negativo\\f03-12-9788535287059.jpg'
+#imagem = 'D:\\Downloads\\python-cancer\\training\\leucoplasia\\positivo\\LEUCOPLASIA 1.2.jpg'
 
 TIPO = "cancer"
 
