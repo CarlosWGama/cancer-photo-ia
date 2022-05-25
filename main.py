@@ -12,7 +12,9 @@ from keras.layers import Dense,GlobalAveragePooling2D
 import numpy as np
 
 #cancer | leucoplasia
-TIPO = "cancer" 
+#cancer = batch_size = 20 | steps_per_epoch = 20
+#leucoplasia atch_size = 10 | steps_per_epoch = 20
+TIPO = "leucoplasia" 
 
 #Prepara as iamgens
 TRAINING_DIR = f"./training/{TIPO}"
@@ -30,7 +32,7 @@ train_generator = training_datagen.flow_from_directory(
 	TRAINING_DIR,
 	target_size=(150,150),
 	class_mode='categorical',
-    batch_size=20
+    batch_size=10
 )
 
 #Cria o modelo
@@ -45,45 +47,6 @@ x=Dense(512,activation='relu')(x) #dense layer 3
 preds=Dense(2,activation='softmax')(x) #final layer with softmax activation
 
 model= Model(inputs=base_model.input,outputs=preds)
-
-
-
-# model = tf.keras.models.Sequential([
-#     tf.keras.applications.mobilenet.MobileNet(
-#         input_shape=None,
-#         alpha=1.0,
-#         include_top=True,
-#         weights='imagenet',
-#         input_tensor=None,
-#         pooling=None,
-#         classes=1000,
-#         classifier_activation='softmax',
-#     ),
-#     # Note the input shape is the desired size of the image 150x150 with 3 bytes color
-#     # This is the first convolution
-#     tf.keras.layers.Conv2D(128, (3,3), activation='relu', input_shape=(150, 150, 3)),
-#     tf.keras.layers.MaxPooling2D(2, 2),
-#     # tf.keras.layers.Dropout(0.5),
-#     # The second convolution
-#     tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
-#     tf.keras.layers.MaxPooling2D(2,2),
-#     # tf.keras.layers.Dropout(0.5),
-#     # The third convolution
-#     tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
-#     tf.keras.layers.MaxPooling2D(2,2),
-#     # tf.keras.layers.Dropout(0.5),
-#     # The fourth convolution
-#     # tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
-#     # tf.keras.layers.MaxPooling2D(2,2),
-#     # Flatten the results to feed into a DNN
-#     tf.keras.layers.Flatten(),
-#     # tf.keras.layers.Dropout(0.5),
-#     # 512 neuron hidden layer
-#     tf.keras.layers.Dense(512, activation='relu'),
-#     tf.keras.layers.Dense(2, activation='softmax')
-# ])
-
-# model.summary()
 
 # model.compile(loss = 'categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 model.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
